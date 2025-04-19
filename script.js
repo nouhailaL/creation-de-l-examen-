@@ -22,3 +22,10 @@ document.getElementById('form-examen').addEventListener('submit', function(e) {
   alert('Examen ajouté avec succès !');
   this.reset();
 });
+
+document.getElementById('choix').addEventListener('change', function () {
+  const fichier = this.value;
+  if (fichier) {
+    window.location.href = fichier;
+  }
+});

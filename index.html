@@ -2,34 +2,16 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<title>Ajouter une question</title>
-</head>
-<body>
-<h1>Ajouter une question à un examen</h1>
-<form id="form-question">
-<input type="text" id="proprietaire" placeholder="Nom du propriétaire"
-required><br>
-<input type="text" id="nom-examen" placeholder="Nom de l'examen"
-required><br>
-<textarea id="enonce" placeholder="Énoncé de la question"
-required></textarea><br>
-<input type="number" id="duree" placeholder="Durée (secondes)"
-required><br>
-<input type="number" id="points" placeholder="Points" required><br>
-<div id="propositions"></div>
-<button type="button" id="add-proposition">Ajouter une
-proposition</button><br><br>
-<button type="submit">Ajouter la question</button>
-</form>
-<script src="ajouter-question.js"></script>
-=======
-=======
->>>>>>> Stashed changes
 <title>Ajouter un Examen</title>
 </head>
 <body>
+    <label for="choix">Choisissez une action :</label><br>
+    <select id="choix">
+      <option value="">-- Sélectionner --</option>
+      <option value="index.html">Créer un examen</option>
+      <option value="ajouterquestion.html">Ajouter une question</option>
+      <option value="examen.html">Afficher les examens</option>
+    </select>
 <h1>Créer un nouvel examen</h1>
 <form id="form-examen">
 <input type="text" id="nom" placeholder="Nom de l'examen" required><br>
@@ -40,9 +22,5 @@ required><br>
 <button type="submit">Ajouter l'examen</button>
 </form>
 <script src="script.js"></script>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 </body>
 </html>

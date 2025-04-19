@@ -56,3 +56,40 @@ document.getElementById('form-question').addEventListener('submit', function(e) 
   this.reset();
   document.getElementById('propositions').innerHTML = '';
 });
+
+document.getElementById('retour').addEventListener('click', function () {
+  window.location.href = 'index.html';
+});
+document.getElementById('afficher').addEventListener('click', () => {
+  const prop = document.getElementById('proprietaire').value.trim().toLowerCase();
+  const exams = JSON.parse(localStorage.getItem('examens_' + prop)) || [];
+  const container = document.getElementById('resultat');
+  container.innerHTML = '';
+
+  if (exams.length === 0) {
+    container.innerHTML = '<p>Aucun examen trouvé pour ce propriétaire.</p>';
+    return;
+  }
+
+  exams.forEach((exam, i) => {
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <h2>${exam.nom} (${exam.duree} min)</h2>
+      <p><strong>Description :</strong> ${exam.description}</p>
+      <h3>Questions :</h3>
+      <ul>
+        ${exam.questions.map(q => `
+          <li>
+            <p><strong>${q.enonce}</strong> (${q.duree}s - ${q.points} pts)</p>
+            <ul>
+              ${q.propositions.map(p => `
+                <li>${p.texte} ${p.correcte ? '<strong>(correcte)</strong>' : ''}</li>
+              `).join('')}
+            </ul>
+          </li>
+        `).join('')}
+      </ul>
+    `;
+    container.appendChild(div);
+  });
+});
